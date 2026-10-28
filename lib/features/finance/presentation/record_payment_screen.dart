@@ -41,11 +41,16 @@ class _RecordPaymentScreenState extends State<RecordPaymentScreen> {
 
   final List<String> _paymentModes = [
     'Espèces',
+    'MyNita (Nita Transfert)',
+    'AmanaTa Transfert',
+    'Al-Izza Transfert',
+    'Airtel Money',
+    'Moov Money (Flooz)',
+    'Zamani Cash',
     'Mobile Money',
     'Virement',
     'Chèque',
     'Carte Bancaire',
-    'Paiement Électronique',
   ];
 
   final List<String> _months = [

@@ -265,6 +265,40 @@ class _GateScannerScreenState extends State<GateScannerScreen>
                               'Régime : ${student['categorie'] ?? 'Externe'} • Sang : ${student['groupeSanguin'] ?? 'Inconnu'}',
                               style: const TextStyle(color: Colors.white60, fontSize: 11),
                             ),
+                            if (result['financialStatus'] != null) ...[
+                              const SizedBox(height: 6),
+                              Builder(
+                                builder: (_) {
+                                  final fin = result['financialStatus'] as Map<String, dynamic>;
+                                  final isOk = fin['isUpToDate'] == true;
+                                  final bal = fin['balance'] ?? 0;
+                                  return Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+                                    decoration: BoxDecoration(
+                                      color: isOk
+                                          ? const Color(0xFF10B981).withValues(alpha: 0.18)
+                                          : const Color(0xFFF59E0B).withValues(alpha: 0.18),
+                                      borderRadius: BorderRadius.circular(6),
+                                      border: Border.all(
+                                        color: isOk
+                                            ? const Color(0xFF10B981).withValues(alpha: 0.4)
+                                            : const Color(0xFFF59E0B).withValues(alpha: 0.4),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      isOk
+                                          ? '💳 Scolarité : En règle ✅'
+                                          : '💳 Solde restant : $bal FCFA ⚠️',
+                                      style: TextStyle(
+                                        color: isOk ? const Color(0xFF34D399) : const Color(0xFFFBBF24),
+                                        fontSize: 11,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ],
                           ],
                         ),
                       ),
@@ -337,6 +371,31 @@ class _GateScannerScreenState extends State<GateScannerScreen>
                       ),
                     ],
                   ),
+                  if (result['whatsappAlert'] != null && result['whatsappAlert']['link'] != null) ...[
+                    const SizedBox(height: 10),
+                    SizedBox(
+                      width: double.infinity,
+                      child: OutlinedButton.icon(
+                        onPressed: () async {
+                          final waLink = result['whatsappAlert']['link'].toString();
+                          final uri = Uri.parse(waLink);
+                          if (await canLaunchUrl(uri)) {
+                            await launchUrl(uri, mode: LaunchMode.externalApplication);
+                          }
+                        },
+                        icon: const Icon(Icons.chat_bubble_outline_rounded, size: 18, color: Color(0xFF4ADE80)),
+                        label: Text(
+                          'Notifier le Parent sur WhatsApp (${student['parentNom'] ?? 'Tuteur'})',
+                          style: const TextStyle(color: Color(0xFF4ADE80), fontWeight: FontWeight.bold, fontSize: 12.5),
+                        ),
+                        style: OutlinedButton.styleFrom(
+                          side: const BorderSide(color: Color(0xFF22C55E)),
+                          padding: const EdgeInsets.symmetric(vertical: 12),
+                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                        ),
+                      ),
+                    ),
+                  ],
                 ] else ...[
                   // Not found fallback
                   Text(
