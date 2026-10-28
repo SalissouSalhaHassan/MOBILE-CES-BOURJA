@@ -478,10 +478,11 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                                 ),
                               ),
                               Container(
-                                width: 84,
-                                height: 84,
+                                width: 108,
+                                height: 108,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(22),
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(26),
                                   boxShadow: [
                                     BoxShadow(
                                       color: const Color(0xFF4F46E5).withValues(alpha: 0.35),
@@ -491,23 +492,26 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                                   ],
                                 ),
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(22),
-                                  child: Image.asset(
-                                    'assets/images/app_icon.png',
-                                    fit: BoxFit.cover,
-                                    errorBuilder: (context, error, stackTrace) => Container(
-                                      decoration: const BoxDecoration(
-                                        gradient: LinearGradient(
-                                          colors: [Color(0xFF4F46E5), Color(0xFF2563EB)],
-                                          begin: Alignment.topCenter,
-                                          end: Alignment.bottomCenter,
+                                  borderRadius: BorderRadius.circular(26),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(4.0),
+                                    child: Image.asset(
+                                      'assets/images/app_icon.png',
+                                      fit: BoxFit.contain,
+                                      errorBuilder: (context, error, stackTrace) => Container(
+                                        decoration: const BoxDecoration(
+                                          gradient: LinearGradient(
+                                            colors: [Color(0xFF4F46E5), Color(0xFF2563EB)],
+                                            begin: Alignment.topCenter,
+                                            end: Alignment.bottomCenter,
+                                          ),
                                         ),
-                                      ),
-                                      child: const Center(
-                                        child: Icon(
-                                          Icons.school_rounded,
-                                          size: 44,
-                                          color: Colors.white,
+                                        child: const Center(
+                                          child: Icon(
+                                            Icons.school_rounded,
+                                            size: 44,
+                                            color: Colors.white,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -522,7 +526,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                         // Title & Subtitle
                         const Center(
                           child: Text(
-                            'EDUT PRO SCOLAIRE',
+                            'CES BOURJA',
                             style: TextStyle(
                               fontSize: 25,
                               fontWeight: FontWeight.w900,
@@ -541,7 +545,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                               border: Border.all(color: const Color(0xFFC7D2FE)),
                             ),
                             child: const Text(
-                              'Système de gestion scolaire intelligent',
+                              'Complexe d\'Enseignement Secondaire Bourja - Maradi',
                               style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w700,
