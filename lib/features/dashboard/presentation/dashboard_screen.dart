@@ -2194,7 +2194,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   ),
                   title: const Text("Serveur Cloud Officiel"),
                   subtitle: const Text(
-                    "edut-web-ceg-raouda.vercel.app (CEG RAOUDA)",
+                    "edut-web-ces-bourja.vercel.app (CES BOURJA)",
                     style: TextStyle(
                       fontSize: 11,
                       color: Color(0xFF059669),

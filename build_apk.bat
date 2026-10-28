@@ -1,8 +1,8 @@
 @echo off
-title Edut Pro - CEG RAOUDA APK Builder
+title Edut Pro - CES BOURJA APK Builder
 
 echo ===================================================
-echo   COMPILATION NOUVEAU APK (Edut Pro - CEG RAOUDA)
+echo   COMPILATION NOUVEAU APK (Edut Pro - CES BOURJA)
 echo ===================================================
 echo.
 
@@ -32,8 +32,8 @@ call gradlew.bat --stop >nul 2>&1
 cd ..
 
 echo.
-echo [4/4] Compilation du fichier APK Release pour CEG RAOUDA...
-call %FLUTTER_EXE% build apk --release --no-tree-shake-icons --dart-define=EDUT_WEB_API_BASE_URL=https://edut-web-ceg-raouda.vercel.app --dart-define=SUPABASE_URL=https://ntlncvstzmfqbqystpwi.supabase.co --dart-define=SUPABASE_ANON_KEY=sb_publishable_b3ppmfxdt-zSFggHVVHHRA_CyfAN7hA
+echo [4/4] Compilation du fichier APK Release pour CES BOURJA...
+call %FLUTTER_EXE% build apk --release --no-tree-shake-icons --dart-define=EDUT_WEB_API_BASE_URL=https://edut-web-ces-bourja.vercel.app --dart-define=SUPABASE_URL=https://hxweqrfgqlrzjcjjemme.supabase.co --dart-define=SUPABASE_ANON_KEY=sb_publishable_wyxNZnhEVc0r-m1XZZrxNQ_OoV-H5vD
 if errorlevel 1 (
     echo.
     echo ===================================================

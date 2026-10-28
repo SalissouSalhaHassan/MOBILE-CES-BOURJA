@@ -350,7 +350,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                         controller: _schoolCodeController,
                         decoration: const InputDecoration(
                           labelText: 'Code de l\'établissement',
-                          hintText: 'ex: aiiu-niger ou 1',
+                          hintText: 'ex: ces-bourja ou 1',
                           prefixIcon: Icon(
                             Icons.business_outlined,
                             color: AppColors.slate400,

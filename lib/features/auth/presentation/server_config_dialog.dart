@@ -37,11 +37,11 @@ class _ServerConfigDialogState extends State<ServerConfigDialog> {
 
   final List<Map<String, dynamic>> _presets = [
     {
-      'label': 'Production Principale (Edut-Web XI)',
-      'url': 'https://edut-web-ceg-raouda.vercel.app',
+      'label': 'Production Principale (CES BOURJA)',
+      'url': 'https://edut-web-ces-bourja.vercel.app',
       'tag': 'Live Prod',
       'badgeColor': const Color(0xFF10B981),
-      'description': 'Serveur Vercel officiel actif (CEG RAOUDA)',
+      'description': 'Serveur Vercel officiel actif (CES BOURJA)',
     },
     {
       'label': 'Serveur Web Standard (Edut-Web)',
@@ -488,7 +488,7 @@ class _ServerConfigDialogState extends State<ServerConfigDialog> {
                     color: Color(0xFF0F172A),
                   ),
                   decoration: InputDecoration(
-                    hintText: 'ex: edut-web-ceg-raouda.vercel.app',
+                    hintText: 'ex: edut-web-ces-bourja.vercel.app',
                     hintStyle: const TextStyle(
                       fontSize: 12.5,
                       color: Color(0xFF94A3B8),
