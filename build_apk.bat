@@ -33,7 +33,7 @@ cd ..
 
 echo.
 echo [4/4] Compilation du fichier APK Release pour CES BOURJA...
-call %FLUTTER_EXE% build apk --release --no-tree-shake-icons --dart-define=EDUT_WEB_API_BASE_URL=https://edut-web-ces-bourja.vercel.app --dart-define=SUPABASE_URL=https://hxweqrfgqlrzjcjjemme.supabase.co --dart-define=SUPABASE_ANON_KEY=sb_publishable_wyxNZnhEVc0r-m1XZZrxNQ_OoV-H5vD
+call %FLUTTER_EXE% build apk --release --no-tree-shake-icons --dart-define=EDUT_WEB_API_BASE_URL=https://web-ces-bourja.vercel.app --dart-define=SUPABASE_URL=https://hxweqrfgqlrzjcjjemme.supabase.co --dart-define=SUPABASE_ANON_KEY=sb_publishable_wyxNZnhEVc0r-m1XZZrxNQ_OoV-H5vD
 if errorlevel 1 (
     echo.
     echo ===================================================
