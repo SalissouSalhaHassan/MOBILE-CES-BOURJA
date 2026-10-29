@@ -26,10 +26,7 @@ if errorlevel 1 (
 )
 
 echo.
-echo [3/4] Verification Gradle...
-cd android
-call gradlew.bat --stop >nul 2>&1
-cd ..
+echo [3/4] Verification de l'environnement Android/Gradle...
 
 echo.
 echo [4/4] Compilation du fichier APK Release pour CES BOURJA...
