@@ -239,7 +239,7 @@ class _TeacherAttendanceScreenState extends State<TeacherAttendanceScreen> {
             child: _isLoading
                 ? const Center(child: CircularProgressIndicator(color: AppColors.primary))
                 : _errorMessage != null
-                    ? Center(child: Text(_errorMessage!, style: const TextStyle(color: AppColors.danger, fontWeight: FontWeight.bold)))
+                    ? _buildErrorState()
                     : _slots.isEmpty
                         ? const Center(child: Text("Aucun cours programmé sur cette période.", style: TextStyle(color: AppColors.slate500, fontWeight: FontWeight.bold)))
                         : Column(
@@ -261,6 +261,70 @@ class _TeacherAttendanceScreenState extends State<TeacherAttendanceScreen> {
                           ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildErrorState() {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(28.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: AppColors.primary.withAlpha(20),
+                shape: BoxShape.circle,
+              ),
+              child: const Icon(Icons.event_busy_rounded, size: 48, color: AppColors.primary),
+            ),
+            const SizedBox(height: 18),
+            const Text(
+              "Calendrier temporairement indisponible",
+              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 16, color: AppColors.slate900),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 8),
+            Text(
+              _errorMessage ?? "Impossible de charger les séances de cours.",
+              style: const TextStyle(fontSize: 12, color: AppColors.slate500),
+              textAlign: TextAlign.center,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+            ),
+            const SizedBox(height: 24),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton.icon(
+                  onPressed: _fetchAttendanceData,
+                  icon: const Icon(Icons.refresh_rounded, size: 18),
+                  label: const Text("Réessayer", style: TextStyle(fontWeight: FontWeight.bold)),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.primary,
+                    foregroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                OutlinedButton.icon(
+                  onPressed: () => context.push('/attendance/quick-roll'),
+                  icon: const Icon(Icons.fact_check_outlined, size: 18),
+                  label: const Text("Appel direct", style: TextStyle(fontWeight: FontWeight.bold)),
+                  style: OutlinedButton.styleFrom(
+                    foregroundColor: AppColors.primary,
+                    side: const BorderSide(color: AppColors.primary),
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
